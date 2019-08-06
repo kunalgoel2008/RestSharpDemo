@@ -18,6 +18,6 @@ namespace RestSharpDemo.Model
         public string mob_no { get; set; }
         public string alt_mob_no { get; set; }
         public bool isDeleted { get; set; }
-
+        public Address address { get; internal set; }
     }
 }

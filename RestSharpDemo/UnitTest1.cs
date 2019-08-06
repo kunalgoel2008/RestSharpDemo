@@ -99,92 +99,176 @@ namespace RestSharpDemo
             Console.WriteLine(StatusCode);
         }
 
-        /*[Test]
-        public void PostWithBody()
+        [Test]
+        public void TestPostWithBody()
         {
             client = new RestClient("http://localhost:63812/");
-            request = new RestRequest("", Method.POST);
+            request = new RestRequest("createUser", Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new Posts() {});
+            request.AddJsonBody(new Posts() {
+ id= 20,
+ first_name= "string",
+ last_name = "string",
+ position_id = 1,
+ organisation_id = 1,
+ address_id = 1,
+ mob_no = "string",
+ alt_mob_no = "string",
+ email = "string",
+ isDeleted = false,
+ address =  new Address(){
+ id = 10,
+ address_type = "6411641C-F93C-4923-8D28-21FD0F36ADD6",
+ street = "string",
+ street_2 = "string",
+ state_id = 1,
+ pincode = "string"}
+   
+   });
             restResponse = client.Execute(request);
             StatusCode = (int)restResponse.StatusCode;
             NUnit.Framework.Assert.AreEqual(201, StatusCode, "Status Code is not 201");
             Console.WriteLine(StatusCode);
-        }*/
+        }
 
-        /*[Test]
-        public void PostWithoutBody()
-        {
-            client = new RestClient("http://localhost:63812/");
-            request = new RestRequest("", Method.POST);
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new Posts() {});
-            restResponse = client.Execute(request);
-            StatusCode = (int)restResponse.StatusCode;
-            NUnit.Framework.Assert.AreEqual(404, StatusCode, "Status Code is not 404");
-            Console.WriteLine(StatusCode);
-        }*/
-
-        /*[Test]
-        public void PostWithWrongURL()
-        {
-            client = new RestClient("http://localhost:63812/");
-            request = new RestRequest("", Method.POST);
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new Posts() {});
-            restResponse = client.Execute(request);
-            StatusCode = (int)restResponse.StatusCode;
-            NUnit.Framework.Assert.AreEqual(404, StatusCode, "Status Code is not 404");
-            Console.WriteLine(StatusCode);
-        }*/
-
-        /*[Test]
-        public void PostWithWrongMethod()
-        {
-            client = new RestClient("http://localhost:63812/");
-            request = new RestRequest("", Method.GET);
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new Posts() {});
-            restResponse = client.Execute(request);
-            StatusCode = (int)restResponse.StatusCode;
-            NUnit.Framework.Assert.AreEqual(405, StatusCode, "Status Code is not 405");
-            Console.WriteLine(StatusCode);
-        }*/
-        /*
         [Test]
-        public void PostAndGet()
+        public void TestPostWithoutBody()
         {
-        //POST
             client = new RestClient("http://localhost:63812/");
-            request = new RestRequest("", Method.POST);
+            request = new RestRequest("createUser", Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new Posts() {id = 8
-            , first_name = ""
-            , last_name = ""
-            , email = ""
-            , position_id = 1
-            , organisation_id = 1
-            , address_id = 1
-            , mob_no = ""
-            , alt_mob_no = ""
-            , isDeleted = false});
+            request.AddJsonBody(new Posts() {});
+            restResponse = client.Execute(request);
+            StatusCode = (int)restResponse.StatusCode;
+            NUnit.Framework.Assert.AreEqual(400, StatusCode, "Status Code is not 400");
+            Console.WriteLine(StatusCode);
+        }
+
+        [Test]
+        public void TestPostWithWrongURL()
+        {
+            client = new RestClient("http://localhost:63812/");
+            request = new RestRequest("createUsers", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new Posts() {
+ id= 20,
+ first_name= "string",
+ last_name = "string",
+ position_id = 1,
+ organisation_id = 1,
+ address_id = 1,
+ mob_no = "string",
+ alt_mob_no = "string",
+ email = "string",
+ isDeleted = false,
+ address =  new Address(){
+ id = 10,
+ address_type = "6411641C-F93C-4923-8D28-21FD0F36ADD6",
+ street = "string",
+ street_2 = "string",
+ state_id = 1,
+ pincode = "string"}
+   
+   });
+            restResponse = client.Execute(request);
+            StatusCode = (int)restResponse.StatusCode;
+            NUnit.Framework.Assert.AreEqual(404, StatusCode, "Status Code is not 404");
+            Console.WriteLine(StatusCode);
+        }
+
+        [Test]
+        public void TestPostWithWrongMethod()
+        {
+            client = new RestClient("http://localhost:63812/");
+            request = new RestRequest("createUser", Method.GET);
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new Posts() {
+ id= 20,
+ first_name= "string",
+ last_name = "string",
+ position_id = 1,
+ organisation_id = 1,
+ address_id = 1,
+ mob_no = "string",
+ alt_mob_no = "string",
+ email = "string",
+ isDeleted = false,
+ address =  new Address(){
+ id = 10,
+ address_type = "6411641C-F93C-4923-8D28-21FD0F36ADD6",
+ street = "string",
+ street_2 = "string",
+ state_id = 1,
+ pincode = "string"}
+   
+   });
             restResponse = client.Execute(request);
             StatusCode = (int)restResponse.StatusCode;
             NUnit.Framework.Assert.AreEqual(405, StatusCode, "Status Code is not 405");
             Console.WriteLine(StatusCode);
+        }
 
-        //GET
+        [Test]
+        public void TestPostAndGet()
+        {
+            //POST
+            client = new RestClient("http://localhost:63812/");
+            request = new RestRequest("createUser", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new Posts()
+            {
+                id = 13,
+                first_name = "string",
+                last_name = "string",
+                position_id = 1,
+                organisation_id = 1,
+                address_id = 1,
+                mob_no = "string",
+                alt_mob_no = "string",
+                email = "string",
+                isDeleted = false,
+                address = new Address()
+                {
+                    id = 12,
+                    address_type = "6411641C-F93C-4923-8D28-21FD0F36ADD6",
+                    street = "string",
+                    street_2 = "string",
+                    state_id = 1,
+                    pincode = "string"
+                }
+
+            });
+            restResponse = client.Execute(request);
+            StatusCode = (int)restResponse.StatusCode;
+            NUnit.Framework.Assert.AreEqual(201, StatusCode, "Status Code is not 201");
+            Console.WriteLine(StatusCode);
+
+            //GET
             request = new RestRequest("getUsers/{id}", Method.GET);
-            request.AddUrlSegment("id", givenId);
+            request.AddUrlSegment("id", 13);
             restResponse = client.Execute<Posts>(request);
             var actualName = client.Execute<Posts>(request).Data.first_name;
             StatusCode = (int)restResponse.StatusCode;
             NUnit.Framework.Assert.AreEqual(200, StatusCode, "Status Code is not 200");
-            NUnit.Framework.Assert.AreEqual(actualName, givenName);
+            NUnit.Framework.Assert.AreEqual(actualName, "string");
             Console.WriteLine(StatusCode);
- 
 
-        }*/
+
+        }
+
+        [Test]
+        public void TestDelete()
+        {
+
+            client = new RestClient("http://localhost:63812/");
+            request = new RestRequest("deleteUsers/{id}", Method.DELETE);
+            request.AddUrlSegment("id", 11);
+            restResponse = client.Execute(request);
+            StatusCode = (int)restResponse.StatusCode;
+            NUnit.Framework.Assert.AreEqual(200, StatusCode, "Status Code is not 200");
+            Console.WriteLine(StatusCode);
+        }
+
 
     }
 
